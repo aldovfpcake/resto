@@ -6,12 +6,6 @@
   {
     public 	$helpers    = array('Html','Form');
     public  $component  = array('Session');
-    public  $paginate   = 'oagu';
-    
-    /* prueba
-
-    con git para recuperar archivo original
-    */
 
     public function index()
     {
