@@ -1,4 +1,16 @@
  <br>
+
+<?php
+  $this->Paginator->options(array(
+          'update' => '#contenedro-meseros',
+          'before' =>$this->Js->get('#procesando')->effect('fadeIn',array('buffer'=>false)),
+          'complete'=> $this->Js->get('#procesando')->effect('fadeOut',array('buffer'=>false))
+          ));
+
+?>          
+
+<div id= "contenedor-meseros"></div> 
+
 <h1> Lista De Meseros </h1>
  <table cellpadding="1" cellspacing="2" border="1" class="table table-striped" id="example">
  
