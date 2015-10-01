@@ -3,8 +3,8 @@
  <table cellpadding="1" cellspacing="2" border="1" class="table table-striped" id="example">
  
   	 <tr>
-   		 <td>id</td>
- 	  	 <td>Nombre</td>
+   		 <td><?php echo $this->paginator->sort('id');?></td>
+ 	  	 <td><?php echo $this->paginator->sort('nombre');?></td>
  	 	   <td>Apellido</td>
  	 	   <td>Acciones</td> 
      </tr>
@@ -27,4 +27,14 @@
       </tr>
    <?php endforeach;?>       
  </table>
-   
+  <?php
+    echo $this->Paginator->counter(array(
+    'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+    ));
+    ?>  </p>
+    <ul class="pagination">
+      <li> <?php echo $this->Paginator->prev('< ' . __('previous'), array('tag' => false), null, array('class' => 'prev disabled')); ?> </li>
+      <?php echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentTag' => 'a', 'currentClass' => 'active')); ?>
+      <li> <?php echo $this->Paginator->next(__('next') . ' >', array('tag' => false), null, array('class' => 'next disabled')); ?> </li>
+    </ul> 
+</div>
