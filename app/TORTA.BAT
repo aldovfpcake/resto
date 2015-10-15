@@ -1,0 +1,1 @@
+PATH =C:\wamp\bin\php\php5.5.12;C:\WAMP\WWW\RESTO\APP\CONSOLE
