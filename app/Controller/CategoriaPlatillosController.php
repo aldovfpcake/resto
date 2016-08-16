@@ -31,6 +31,7 @@ class CategoriaPlatillosController extends AppController {
  * @throws NotFoundException
  * @param string $id
  * @return void
+ * saaraza de github 
  */
 	public function view($id = null) {
 		if (!$this->CategoriaPlatillo->exists($id)) {
