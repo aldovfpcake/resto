@@ -1,3 +1,5 @@
+  
+
  <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -21,7 +23,8 @@
                 <li><?php echo $this->Html->link('Nuevo Mesero', array('controller' => 'meseros', 'action' => 'nuevo')) ?></li>
               </ul>
              </li>
-            <li><a href="#about">About</a></li>
+			       <li><?php echo $this->Html->link('Tipos de Comidas', array('controller' => 'platillos', 'action' => 'index')) ?></li>
+            <li><?php echo $this->Html->link('Cocineros', array('controller' => 'cocineros', 'action' => 'index')) ?></li>
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

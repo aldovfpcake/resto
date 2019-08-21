@@ -12,7 +12,7 @@ class Platillo extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'id';
+	public $displayField = 'descripcion';
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -31,4 +31,36 @@ class Platillo extends AppModel {
 			'order' => ''
 		)
 	);
-}
+
+	
+	public $hasAndBelongsToMany = array(
+		'Cocinero' => array(
+			'className' => 'Cocinero',
+			'joinTable' => 'cocineros-platillos',
+			'foreignKey' => 'platillo_id',
+			'associationForeignKey' => 'cocinero_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+		)
+	);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}

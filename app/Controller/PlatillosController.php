@@ -1,5 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
+/*App::uses('meseros', 'Model');*/
+
 /**
  * Platillos Controller
  *
@@ -13,7 +15,12 @@ class PlatillosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+
+    public $components = array('Paginator', 'RequestHandler', 'Session');
+
+	
+
+    
 
 /**
  * index method
@@ -21,6 +28,7 @@ class PlatillosController extends AppController {
  * @return void
  */
 	public function index() {
+		/*$lista = $this->Meseros->find("all");*/
 		$this->Platillo->recursive = 0;
 		$this->set('platillos', $this->Paginator->paginate());
 	}
@@ -33,23 +41,62 @@ class PlatillosController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		
 		if (!$this->Platillo->exists($id)) {
 			throw new NotFoundException(__('Invalid platillo'));
 		}
 		$options = array('conditions' => array('Platillo.' . $this->Platillo->primaryKey => $id));
+		
+		 $this->pdfConfig = array(
+            'download' => true,
+            'filename' => 'platillo_' . $id .'.pdf'
+        );
+		
 		$this->set('platillo', $this->Platillo->find('first', $options));
 	}
 
+	public function ver($id = null) {
+		if (!$this->Platillo->exists($id)) {
+			throw new NotFoundException(__('Invalid platillo'));
+		}
+		$options = array('conditions' => array('Platillo.' . $this->Platillo->primaryKey => $id));
+		 echo "paso";
+		 $this->pdfConfig = array(
+            'download' => true,
+            'filename' => 'platillo_' . $id .'.pdf'
+        );
+		
+		$this->set('platillo', $this->Platillo->find('first', $options));
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 /**
  * add method
  *
  * @return void
  */
-	public function add() {
+    public function add() {
 		if ($this->request->is('post')) {
 			$this->Platillo->create();
-			if ($this->Platillo->save($this->request->data)) {
-				$this->Session->setFlash(__('The platillo has been saved.'));
+			for($i= 1 ; $i< 10;$i++) 
+			{ print_r('<br>');}
+			
+		    print_r($this->request->data);
+		if ($this->Platillo->save($this->request->data)) {
+		    
+        	$this->Session->setFlash(__('The platillo has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The platillo could not be saved. Please, try again.'));
@@ -106,7 +153,27 @@ class PlatillosController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
-/**
+
+	public function actualizar(){
+	  
+	    if ($this->request->is('post')) {
+	        for($i= 1 ; $i< 10;$i++) 
+			{ print_r('<br>');}
+			
+              $importe = 450.50;	
+              $porcentaje = $this->data['Actualizar']['Porcentaje']; 			  
+              $query = "UPDATE PLATILLOS SET PRECIO = "."PRECIO*".$porcentaje."/100"."+PRECIO";
+			  print_r($query);
+			  $this->Platillo->query($query);
+		      $this->Session->setFlash(_('Actualizando Precios'));
+			 
+		 }
+	}
+	
+	
+	
+	
+	/**
  * admin_index method
  *
  * @return void

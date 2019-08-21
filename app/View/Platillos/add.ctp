@@ -1,15 +1,24 @@
-<div class="platillos form">
-<?php echo $this->Form->create('Platillo'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Platillo'); ?></legend>
-	<?php
-		echo $this->Form->input('nombre');
-		echo $this->Form->input('descripcion');
-		echo $this->Form->input('precio');
-		echo $this->Form->input('categoria_platillo_id');
+ <style type="text/css">
+    .form-box{
+      max-width: 500px;
+      position: relative;
+      margin: 5% auto;
+    }
+  </style>
+
+<div class="form-box">
+<?php echo $this->Form->create('Add Platillo',array('class' => 'form-horizontal')); ?>
+<?php
+		echo $this->Form->input('nombre',array('class'=>'form-control'));
+		echo $this->Form->input('descripcion',array('class'=>'form-control'));
+		echo $this->Form->input('precio',array('class'=>'form-control'));
+		echo $this->Form->input('categoria_platillo_id',array('class'=>'form-control'));
+		echo $this->Form->input('foto',array('class'=>'form-control'));
+		echo $this->Form->input('foto_dir',array('class'=>'form-control'));
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+	
+<br>
+<?php echo $this->form->end('Aceptar',array('class'=>'btn btn-primary')); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

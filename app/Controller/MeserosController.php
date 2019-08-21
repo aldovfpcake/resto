@@ -53,13 +53,19 @@
               $this->Session->setFlash('Error No Se Pudo Grabar El Registro');
 
            }
-           
-
-
-
-
+         
     } 
-      
+    
+    public function lista(){
+                  	        
+		   $this->set("lista", $this->Mesero->find('all'));
+           		   
+	
+	}
+
+
+
+	
    
   }
 

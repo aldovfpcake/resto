@@ -1,12 +1,12 @@
 <div class="categoriaPlatillos form">
-<?php echo $this->Form->create('CategoriaPlatillo'); ?>
+<?php echo $this->Form->create('CategoriaPlatillo',array('class' => 'form-horizontal')); ?>
 	<fieldset>
 		<legend><?php echo __('Add Categoria Platillo'); ?></legend>
 	<?php
-		echo $this->Form->input('CATEGORIA');
+		echo $this->Form->input('CATEGORIA',array('class'=>'form-control'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->form->end('Aceptar',array('class'=>'btn btn-primary')); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

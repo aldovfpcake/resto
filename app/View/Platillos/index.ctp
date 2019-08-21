@@ -1,6 +1,6 @@
 <div class="platillos index">
 	<h2><?php echo __('Platillos'); ?></h2>
-	<table cellpadding="1" cellspacing="2" border="1" class="table table-striped" id="example">
+	<table cellpadding="0" cellspacing="0" class="table">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -10,6 +10,8 @@
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th><?php echo $this->Paginator->sort('categoria_platillo_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('foto'); ?></th>
+			<th><?php echo $this->Paginator->sort('foto_dir'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -22,7 +24,11 @@
 		<td><?php echo h($platillo['Platillo']['precio']); ?>&nbsp;</td>
 		<td><?php echo h($platillo['Platillo']['created']); ?>&nbsp;</td>
 		<td><?php echo h($platillo['Platillo']['modified']); ?>&nbsp;</td>
-		<td><?php echo $this->Html->link($platillo['CategoriaPlatillo']['CATEGORIA'], array('controller' => 'categoria_platillos', 'action' => 'view', $platillo['CategoriaPlatillo']['ID']), array('class' => 'food-category')); ?></td>
+		<td>
+			<?php echo $this->Html->link($platillo['CategoriaPlatillo']['CATEGORIA'], array('controller' => 'categoria_platillos', 'action' => 'view', $platillo['CategoriaPlatillo']['ID'])); ?>
+		</td>
+		<td><?php echo h($platillo['Platillo']['foto']); ?>&nbsp;</td>
+		<td><?php echo h($platillo['Platillo']['foto_dir']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $platillo['Platillo']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $platillo['Platillo']['id'])); ?>

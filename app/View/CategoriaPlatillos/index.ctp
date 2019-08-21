@@ -1,6 +1,6 @@
 <div class="categoriaPlatillos index">
 	<h2><?php echo __('Categoria Platillos'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table class="table">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('ID'); ?></th>
@@ -14,7 +14,7 @@
 		<td><?php echo h($categoriaPlatillo['CategoriaPlatillo']['ID']); ?>&nbsp;</td>
 		<td><?php echo h($categoriaPlatillo['CategoriaPlatillo']['CATEGORIA']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $categoriaPlatillo['CategoriaPlatillo']['ID'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $categoriaPlatillo['CategoriaPlatillo']['ID'],'type'=>'button','class'=>'btn btn-sm btn-default'));?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $categoriaPlatillo['CategoriaPlatillo']['ID'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $categoriaPlatillo['CategoriaPlatillo']['ID']), array(), __('Are you sure you want to delete # %s?', $categoriaPlatillo['CategoriaPlatillo']['ID'])); ?>
 		</td>
